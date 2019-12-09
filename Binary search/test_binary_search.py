@@ -6,6 +6,16 @@ def test_null_case():
   actual = -1
   assert actual == expected
 
+def test_lsc():
+  expected = 1
+  actual = binary_search([0,1],1)
+  assert actual == expected
+
+def test_lsc2():
+  expected = 0
+  actual = binary_search([0,1],0)
+  assert actual == expected
+
 def test_linerar_case():
   expected = 1
   actual = binary_search([1,2,3],2)
