@@ -5,8 +5,11 @@ def binary_search(lst, key):
     return -1
   leftbound = 0
   rightbound = len(lst) -1
+  index=-4
 
   while leftbound != rightbound:
+    if rightbound-leftbound==1 and index==leftbound:
+      leftbound=rightbound
     index = (leftbound+rightbound)//2
     if lst[index] == key:
       break
