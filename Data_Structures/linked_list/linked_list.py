@@ -13,7 +13,8 @@ class Linked_List:
     self.tail = node
 
   def prepend (self, node):
-    node.next=self.head
+    self.head = node.next
+    self.head = node
 
   def sum_of_list(self):
     sum=0
@@ -73,10 +74,13 @@ class Linked_List:
     return found_it
 
   def __str__(self):
-    return to_string(self)
-
-  def __repr__(self):
-    return to_string(self)
+    results = ''
+    node = self.head
+    while node:
+      results += str(node.data) + "  "
+      node=node.next
+    print(results)
+    return results
 
   def to_string(self):
     results = ''
@@ -86,6 +90,7 @@ class Linked_List:
       node=node.next
     print(results)
     return results
+
 
 class List_Node:
 

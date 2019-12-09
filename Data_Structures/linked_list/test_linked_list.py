@@ -11,10 +11,12 @@ def test_create_and_append(make_list):
   assert make_list.head.next.next.data==3
   assert make_list.tail.data == 9
 
-def test_prepend(make_list):
-  ln = List_Node(4)
-  make_list = make_list.prepend(ln)
-  assert make_list.head.data==4
+def test_prepend():
+  ll = Linked_List()
+  ll.prepend(List_Node(11))
+  assert ll.head.data==11
+  ll.prepend(List_Node(4))
+  assert ll.head.data==4
 
 def test_to_string(make_list):
   expected = "1  2  3  4  5  6  7  8  9  "
