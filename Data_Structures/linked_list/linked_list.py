@@ -4,13 +4,26 @@ class Linked_List:
     self.head = None
     self.tail = None
 
-  def append(self,node):
+  def append2(self,node):
     if self.head == None:
       self.head = node
       self.tail = node
       return
     self.tail.next = node
     self.tail = node
+
+  def remove_head(self):
+    self.head = self.head.next
+
+  def append(self, val):
+    node = List_Node(val)
+    if self.head == None:
+      self.head=node
+    else:
+      current = self.head
+      while current.next:
+        current = current.next
+      current.next = node
 
   def prepend (self, node):
     self.head = node.next
@@ -24,11 +37,14 @@ class Linked_List:
       current = current.next
     return sum
 
-  def remove_head(self):
-    self.head = self.head.next
-
-  def remove_non_head_node(self,node_before_target):
-    node_before_target.next = node_before_target.next.next
+  def remove_node(self,node):
+    if self.head == node:
+      self.head = self.head.next
+    else:
+      current = self.head
+      while current.next != node:
+        current = current.next
+      node.next = node.next.next
 
   def purge_data(self, data):
     node=self.head
@@ -44,11 +60,31 @@ class Linked_List:
       if node.next:
         node=node.next
 
-  def insert_after(self, target_node, inserted_node):
-    inserted_node.next = target_node.next
-    target_node.next = inserted_node
-    if self.tail == target_node:
-      self.tail = inserted_node
+  def insert_after(self, target_val, inserted_val):
+    node = List_Node(inserted_val)
+    current = self.head
+    while current:
+      if current.data == inserted_val:
+        node.next = current.next
+        current.next=node
+        if self.tail == current:
+          self.tail = node
+        break
+      current=current.next
+
+  def insert_before(self, target_val, inserted_val):
+    node = List_Node(inserted_val)
+    if self.head.data==target_val:
+      node.next=self.head
+      self.head=node
+    else:
+      current=self.head
+      while current.next:
+        if current.next.data == inserted_val:
+          node.next = current.next
+          current.next = node
+          break
+        current = current.next
 
   def nth_from_end(self, n):
     current = self.head
@@ -93,7 +129,6 @@ class Linked_List:
 
 
 class List_Node:
-
   def __init__ (self, val, next=None ):
     self.data = val
     self.next = None
