@@ -6,4 +6,4 @@ once located, or a -1 if the target value isn't present.
 Moving left and right indecies to keep track of bounds.  Log N time, constant space
 
 ## Solution
-<img src="../assets/binary-search.jpg"
+<img src="../assets/binary-search.jpg">
