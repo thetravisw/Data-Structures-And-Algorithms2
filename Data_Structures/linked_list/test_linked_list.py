@@ -28,20 +28,8 @@ def test_contains(make_list):
   assert make_list.contains(11) == False
   assert make_list.contains(0) == False 
 
-def test_insert_after(make_list):
-  for i in range (0,3):
-    appended_node = List_Node(2-i)
-    make_list.insert_after(make_list.head.next.next,appended_node)
-  expected = "1  2  3  0  1  2  4  5  6  7  8  9  "
-  assert make_list.to_string() == expected
-
-def test_final_node(make_list):
-  final_node = List_Node(2)
-  make_list.insert_after(make_list.tail,final_node)
-  assert make_list.tail.data == 2
-
 def test_purge_data(make_list):
-  make_list.append(List_Node(2))
+  make_list.append2(List_Node(2))
   make_list.remove_head()
   make_list.purge_data(2)
   assert make_list.to_string() == "3  4  5  6  7  8  9  "
@@ -53,10 +41,19 @@ def test_nth_from_end(make_list):
   for i in range (0,5):
     assert make_list.nth_from_end(i).data == 9-i
 
+def test_append(make_list):
+  make_list.append(4)
+  assert make_list.to_string() == "1  2  3  4  5  6  7  8  9  4  "
+
+def test_insert_after(make_list):
+  make_list.insert_after(3,3)
+  make_list.insert_after(3,3)
+  assert make_list.to_string() == "1  2  3  3  3  4  5  6  7  8  9  "
+
 @pytest.fixture()
 def make_list ():
   ll = Linked_List()
   for i in range (1,10):
     node = List_Node(i)
-    ll.append(node)
+    ll.append2(node)
   return ll
