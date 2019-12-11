@@ -86,14 +86,14 @@ class Linked_List:
           break
         current = current.next
 
-  def nth_from_end(self, n):
+  def kth_from_end(self, k):
     current = self.head
     future = current
-    for i in range (0,n):
-      if future.next:
+    for i in range (0,k):
+      try:
         future = future.next
-      else:
-        return "Too Small"
+      except AttributeError:
+        raise AttributeError 
     while future.next:
       current = current.next
       future = future.next

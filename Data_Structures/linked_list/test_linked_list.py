@@ -37,9 +37,13 @@ def test_purge_data(make_list):
 def test_sum_of_list(make_list):
   assert make_list.sum_of_list() == 45
 
-def test_nth_from_end(make_list):
+def test_kth_from_end(make_list):
   for i in range (0,5):
     assert make_list.nth_from_end(i).data == 9-i
+  with pytest.raises(AttributeError):
+    make_list.nth_from_end(11)
+  with pytest.raises(AttributeError):
+    make_list.nth_from_end(9)
 
 def test_append(make_list):
   make_list.append(4)
