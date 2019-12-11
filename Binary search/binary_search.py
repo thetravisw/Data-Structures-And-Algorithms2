@@ -1,6 +1,6 @@
 def binary_search(lst, key):
-  # A simple function to locate a given Key
-  # in a sorted list of numbers.
+  """A simple function to locate a given Key
+   in a sorted list of numbers."""
   if lst == []:
     return -1
   leftbound = 0
