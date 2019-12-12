@@ -127,7 +127,6 @@ class Linked_List:
     print(results)
     return results
 
-
 class List_Node:
   def __init__ (self, val, next=None ):
     self.data = val
