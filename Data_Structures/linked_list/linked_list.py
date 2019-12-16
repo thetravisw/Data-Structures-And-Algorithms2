@@ -127,6 +127,20 @@ class Linked_List:
     print(results)
     return results
 
+def is_palendrome(ll):
+  return is_a_palendrome(ll.head)
+
+def is_a_palendrome(left_pointer, right_pointer):
+  if right_pointer==None:
+    return True
+  
+  palendromic = is_a_palendrome(left_pointer, right_pointer.next)
+
+  left_pointer = left_pointer.next
+  return palendromic
+
+  
+
 class List_Node:
   def __init__ (self, val, next=None ):
     self.data = val
