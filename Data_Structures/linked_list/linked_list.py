@@ -86,14 +86,14 @@ class Linked_List:
           break
         current = current.next
 
-  def nth_from_end(self, n):
+  def kth_from_end(self, k):
     current = self.head
     future = current
-    for i in range (0,n):
-      if future.next:
+    for i in range (0,k):
+      try:
         future = future.next
-      else:
-        return "Too Small"
+      except AttributeError:
+        raise AttributeError 
     while future.next:
       current = current.next
       future = future.next
@@ -127,6 +127,19 @@ class Linked_List:
     print(results)
     return results
 
+def is_palendrome(ll):
+  return is_a_palendrome(ll.head)
+
+def is_a_palendrome(left_pointer, right_pointer):
+  if right_pointer==None:
+    return True
+  
+  palendromic = is_a_palendrome(left_pointer, right_pointer.next)
+
+  left_pointer = left_pointer.next
+  return palendromic
+
+  
 
 class List_Node:
   def __init__ (self, val, next=None ):
