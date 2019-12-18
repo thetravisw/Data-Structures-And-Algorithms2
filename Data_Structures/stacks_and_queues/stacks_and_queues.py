@@ -6,8 +6,9 @@ class Node:
     self.data = val
 
 class Stack:
-  head = None
-
+  def __init__(self):
+    head = None
+    
   def push(self, val):
     """pushes a value to the stack"""
     node = Node(val)
@@ -34,8 +35,10 @@ class Stack:
     return self.head == None
 
 class Queue:
-  back = None
-  front = None
+
+  def __init__(self):
+    self.back = None
+    self.front = None
 
   def enqueue(self,val):
     """Enqueue's a value"""
